@@ -30,12 +30,12 @@ var slack = new SlackAPI({
 
 slack.on('channel_created', function (data) {
 	console.info("channel created.");
-	var createdChannelID = data.channel.id
+ 	var createdChannelID = data.channel.id
 	var createdChannelName = data.channel.name
 	var data = {
 		channel: notifyChannelName,
 		username: botName,
-		text: "新しいチャンネルが作成されました: <#" + createdChannelID + "|" + createdChannelName +">",
+		text: "New Channel Created: <#" + createdChannelID + "|" + createdChannelName +">",
 	};
 	slack.reqAPI("chat.postMessage", data);
 });
